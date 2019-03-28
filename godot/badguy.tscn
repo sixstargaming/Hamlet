@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://assets/badguy.png" type="Texture" id=1]
+
+[node name="badguy" type="Node2D"]
+
+[node name="badguy" type="Sprite" parent="."]
+position = Vector2( 38.9549, -61.087 )
+texture = ExtResource( 1 )
+
