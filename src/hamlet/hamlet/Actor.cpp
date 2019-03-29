@@ -10,6 +10,7 @@ void Actor::_register_methods() {
 void Actor::_init() { }
 
 Actor::Actor() { return; }
+Actor::Actor(bool a) { if (!a) isAnimate = false;  } // Constuctor for inanimate objects
 Actor::~Actor() { return; }
 
 void Actor::_process(float delta) {
@@ -17,3 +18,18 @@ void Actor::_process(float delta) {
 }
 
 void Actor::_ready() { return; }
+
+// HP methods
+bool Actor::ReduceHealth(float fDamage) {
+	if (isAnimate && isAlive) {
+		fHealth -= fDamage;
+		return CheckLivingStatus();
+	}
+	return false;
+}
+
+bool Actor::CheckLivingStatus() {
+	if (isAnimate && fHealth <= 0)
+		isAlive = false;
+	return isAlive;
+}
