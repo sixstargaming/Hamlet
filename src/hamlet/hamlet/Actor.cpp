@@ -17,7 +17,9 @@ void Actor::_process(float delta) {
 	return;
 }
 
-void Actor::_ready() { return; }
+void Actor::_ready() { 
+	//set_physics_process(false); 
+}
 
 // HP methods
 bool Actor::ReduceHealth(float fDamage) {
@@ -29,7 +31,9 @@ bool Actor::ReduceHealth(float fDamage) {
 }
 
 bool Actor::CheckLivingStatus() {
-	if (isAnimate && fHealth <= 0)
+	if (isAnimate && fHealth <= 0) {
 		isAlive = false;
+		queue_free(); // Kills object
+	}
 	return isAlive;
 }

@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://assets/sword.png" type="Texture" id=1]
+
+[node name="sword" type="Area2D"]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PoolVector2Array( 53.1565, -23.896, 126.308, -17.0686, 53.5579, -8.62337 )
+
+[node name="sword" type="Sprite" parent="."]
+position = Vector2( 79.8401, -13.1081 )
+texture = ExtResource( 1 )
+
