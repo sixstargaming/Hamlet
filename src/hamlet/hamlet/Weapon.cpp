@@ -5,10 +5,17 @@ using namespace godot;
 void Weapon::_register_methods() {
 	//register_method((char*)"_process", &Weapon::_process);
 	register_method((char*)"_ready", &Weapon::_ready);
+	register_method((char*)"_change_state", &Weapon::_change_state);
+	register_method((char*)"_physics_process", &Weapon::_physics_process);
 	//register_method((char*)"_on_Area2D_body_entered", &Weapon::_on_Area2D_body_entered);
 }
 
-void Weapon::_ready() { _physics_process(true); }
+void Weapon::_init() { return; }
+
+Weapon::Weapon() { return; }
+Weapon::~Weapon() { return;  }
+
+void Weapon::_ready() { _physics_process(false); }
 
 void Weapon::Attack() {
 	_change_state(ATTACK);
@@ -21,7 +28,7 @@ void Weapon::_change_state(bool new_sate) {
 		set_physics_process(true);
 	else {
 		set_physics_process(true);
-		pAnimationPlayer->play("attack");
+		//pAnimationPlayer->play("attack");
 	}
 }
 
@@ -40,7 +47,7 @@ void Weapon::_physics_process(float delta) {
 
 // Don't attack ourselves
 bool Weapon::IsOwner(Node actor) {
-	if (this->get_parent()->get_name() == actor.get_name())
-		return true;
+	//if (this->get_parent()->get_name() == actor.get_name()) // This throws an access violation
+		//return true;
 	return false;
 }

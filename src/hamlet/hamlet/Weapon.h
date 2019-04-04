@@ -12,7 +12,7 @@ namespace godot {
 	private:
 		// NULL
 	public:
-		AnimationPlayer *pAnimationPlayer;
+		//AnimationPlayer *pAnimationPlayer;
 
 		enum STATES { IDLE, ATTACK };
 		bool current_state = IDLE;
@@ -25,7 +25,12 @@ namespace godot {
 		void Attack();
 		void _change_state(bool new_sate);
 		void _physics_process(float delta);
+		void _init();
+
 		bool IsOwner(Node actor);
+
+		Weapon();
+		~Weapon();
 	};
 }
 
