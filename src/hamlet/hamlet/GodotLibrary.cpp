@@ -2,6 +2,7 @@
 #include "Root.h"
 #include "Actor.h"
 #include "Player.h"
+#include "Weapon.h"
 
 // #include <gdnative_api_struct.gen.h>  // Not needed?
 //#include <core/Godot.hpp> // Remove once included in root file?
