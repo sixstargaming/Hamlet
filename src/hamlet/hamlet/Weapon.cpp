@@ -8,7 +8,7 @@ void Weapon::_register_methods() {
 	//register_method((char*)"_on_Area2D_body_entered", &Weapon::_on_Area2D_body_entered);
 }
 
-void Weapon::_ready() { _physics_process(false); }
+void Weapon::_ready() { _physics_process(true); }
 
 void Weapon::Attack() {
 	_change_state(ATTACK);
@@ -18,7 +18,7 @@ void Weapon::_change_state(bool new_sate) {
 	current_state = new_sate;
 	
 	if (!current_state)
-		set_physics_process(false);
+		set_physics_process(true);
 	else {
 		set_physics_process(true);
 		pAnimationPlayer->play("attack");

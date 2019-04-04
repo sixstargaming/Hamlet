@@ -19,7 +19,7 @@ namespace godot {
 
 		float fDamage = 50;
 
-		void _register_methods();
+		static void _register_methods();
 
 		void _ready();
 		void Attack();
