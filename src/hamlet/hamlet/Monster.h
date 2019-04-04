@@ -11,8 +11,8 @@ namespace godot {
 		// Vector2 motion;
 	public:
 
-		//static void _register_methods();
-		//void _init();
+		static void _register_methods();
+		void _init();
 		//void _process(float delta);
 		//void _ready();
 
