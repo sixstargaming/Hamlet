@@ -38,16 +38,18 @@ void Weapon::_physics_process(float delta) {
 		return;
 	for (int x = 0; x < aOverlappingBodies.size(); x++) {
 		// TODO: Check if inherits from class Actor, this cast is super unsafe
-		Actor aActor = (Actor)aOverlappingBodies[x];
+		Actor *aActor = &(Actor)aOverlappingBodies[x];
 		if (!IsOwner(aActor))
-			aActor.ReduceHealth(fDamage);	
+			aActor->ReduceHealth(fDamage);	
 	}
 	set_physics_process(false); // End the attack on hit
 }
 
 // Don't attack ourselves
-bool Weapon::IsOwner(Node actor) {
+bool Weapon::IsOwner(Node *actor) {
 	//if (this->get_parent()->get_name() == actor.get_name()) // This throws an access violation
 		//return true;
+	if (this == actor)
+		return true;
 	return false;
 }

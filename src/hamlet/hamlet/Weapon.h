@@ -27,7 +27,7 @@ namespace godot {
 		void _physics_process(float delta);
 		void _init();
 
-		bool IsOwner(Node actor);
+		bool IsOwner(Node *actor);
 
 		Weapon();
 		~Weapon();

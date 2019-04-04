@@ -13,7 +13,7 @@ namespace godot {
 
 		static void _register_methods();
 		void _init();
-		//void _process(float delta);
+		void _process(float delta);
 		//void _ready();
 
 		Monster();

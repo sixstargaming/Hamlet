@@ -25,6 +25,7 @@ namespace godot {
 		~Actor();
 
 		bool ReduceHealth(float fDamage); // Returns true if Actor is still alive after calculating damage
+		void Die(); // Kills Actor
 		bool CheckLivingStatus();
 	};
 }

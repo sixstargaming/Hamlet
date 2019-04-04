@@ -31,9 +31,11 @@ bool Actor::ReduceHealth(float fDamage) {
 }
 
 bool Actor::CheckLivingStatus() {
-	if (isAnimate && fHealth <= 0) {
+	if (isAnimate && fHealth <= 0)
 		isAlive = false;
-		queue_free(); // Kills object
-	}
 	return isAlive;
+}
+
+void Actor::Die() {
+	queue_free();
 }
