@@ -9,7 +9,7 @@ void Monster::_register_methods() {
 
 void Monster::_init() { return; }
 
-Monster::Monster() { fHealth = 100; }
+Monster::Monster() { fHealth = 100.00f; }
 Monster::~Monster() { return; }
 
 void Monster::_process(float delta) {

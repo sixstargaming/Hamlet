@@ -10,7 +10,7 @@ void Actor::_register_methods() {
 void Actor::_init() { }
 
 Actor::Actor() { return; }
-Actor::Actor(bool a) { if (!a) isAnimate = false;  } // Constuctor for inanimate objects
+Actor::Actor(bool a) { if (!a) isAnimate = false; } // Constuctor for inanimate objects
 Actor::~Actor() { return; }
 
 void Actor::_process(float delta) {
@@ -25,6 +25,7 @@ void Actor::_ready() {
 bool Actor::ReduceHealth(float fDamage) {
 	if (isAnimate && isAlive) {
 		fHealth -= fDamage;
+		Godot::print("{0}", fHealth);
 		return CheckLivingStatus();
 	}
 	return false;
@@ -37,5 +38,7 @@ bool Actor::CheckLivingStatus() {
 }
 
 void Actor::Die() {
+	Godot::print("die");
+	isAlive = false;
 	queue_free();
 }

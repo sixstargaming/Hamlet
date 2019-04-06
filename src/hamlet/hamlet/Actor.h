@@ -11,8 +11,8 @@ namespace godot {
 	public:
 
 		bool isAnimate = true; // Flag as false for inanimate objects like rocks and trees
+		bool isAlive = true;
 
-		bool isAlive;
 		float fHealth;
 
 		static void _register_methods();

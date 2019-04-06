@@ -38,11 +38,13 @@ void Weapon::_physics_process(float delta) {
 		return;
 	for (int x = 0; x < aOverlappingBodies.size(); x++) {
 		// TODO: Check if inherits from class Actor, this cast is super unsafe
-		Actor *aActor = &(Actor)aOverlappingBodies[x];
+		//Actor *aActor = &(Actor)aOverlappingBodies[x]; // <- this is giving junk data
+		Object *aObject = ___get_from_variant(aOverlappingBodies[x]);
+		Actor *aActor = static_cast<Actor*>(aObject);
 		if (!IsOwner(aActor))
 			aActor->ReduceHealth(fDamage);	
 	}
-	set_physics_process(false); // End the attack on hit
+	//set_physics_process(false); // End the attack on hit
 }
 
 // Don't attack ourselves

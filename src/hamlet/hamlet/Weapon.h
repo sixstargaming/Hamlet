@@ -17,7 +17,7 @@ namespace godot {
 		enum STATES { IDLE, ATTACK };
 		bool current_state = IDLE;
 
-		float fDamage = 50;
+		float fDamage = 50.00f;
 
 		static void _register_methods();
 
