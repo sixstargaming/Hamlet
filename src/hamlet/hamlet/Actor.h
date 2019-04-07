@@ -1,5 +1,5 @@
-#ifndef PLAYER_H
-#define PLAYER_H
+#ifndef ACTOR_H
+#define ACTOR_H
 
 #include "Root.h"
 #include <KinematicBody2D.hpp>
@@ -30,4 +30,4 @@ namespace godot {
 	};
 }
 
-#endif
+#endif //!ACTOR_H

@@ -15,3 +15,4 @@ polygon = PoolVector2Array( 53.1565, -23.896, 126.308, -17.0686, 53.5579, -8.623
 position = Vector2( 79.8401, -13.1081 )
 texture = ExtResource( 2 )
 
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

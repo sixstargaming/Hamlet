@@ -3,6 +3,7 @@
 
 #include "Root.h"
 #include "Actor.h"
+#include "Player.h"
 #include <Area2D.hpp>
 #include <AnimationPlayer.hpp>
 
@@ -25,6 +26,7 @@ namespace godot {
 		void Attack();
 		void _change_state(bool new_sate);
 		void _physics_process(float delta);
+		void _on_AnimationPlayer_animation_finished(String name);
 		void _init();
 
 		bool IsOwner(Node *actor);

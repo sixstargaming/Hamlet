@@ -1,3 +1,6 @@
+#ifndef MONSTER_H
+#define MONSTER_H
+
 #include "Root.h"
 #include "Actor.h"
 #include <KinematicBody2D.hpp>
@@ -20,3 +23,5 @@ namespace godot {
 		~Monster();
 	};
 }
+
+#endif // !MONSTER_H

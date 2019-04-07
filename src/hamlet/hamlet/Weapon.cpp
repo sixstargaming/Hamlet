@@ -7,15 +7,23 @@ void Weapon::_register_methods() {
 	register_method((char*)"_ready", &Weapon::_ready);
 	register_method((char*)"_change_state", &Weapon::_change_state);
 	register_method((char*)"_physics_process", &Weapon::_physics_process);
+	register_method((char*)"_on_AnimationPlayer_animation_finished", &Weapon::_on_AnimationPlayer_animation_finished);
 	//register_method((char*)"_on_Area2D_body_entered", &Weapon::_on_Area2D_body_entered);
 }
 
 void Weapon::_init() { return; }
 
-Weapon::Weapon() { return; }
-Weapon::~Weapon() { return;  }
+Weapon::Weapon() {
+	Player::pWeapon = this;
+	return; 
+}
 
-void Weapon::_ready() { _physics_process(false); }
+Weapon::~Weapon() { 
+	Player::pWeapon = nullptr;
+	return;
+}
+
+void Weapon::_ready() { set_physics_process(false); }
 
 void Weapon::Attack() {
 	_change_state(ATTACK);
@@ -25,7 +33,7 @@ void Weapon::_change_state(bool new_sate) {
 	current_state = new_sate;
 	
 	if (!current_state)
-		set_physics_process(true);
+		set_physics_process(false);
 	else {
 		set_physics_process(true);
 		//pAnimationPlayer->play("attack");
@@ -45,6 +53,11 @@ void Weapon::_physics_process(float delta) {
 			aActor->ReduceHealth(fDamage);	
 	}
 	//set_physics_process(false); // End the attack on hit
+}
+
+void Weapon::_on_AnimationPlayer_animation_finished(String name){
+	if (name == "attack")
+		_change_state(IDLE);
 }
 
 // Don't attack ourselves

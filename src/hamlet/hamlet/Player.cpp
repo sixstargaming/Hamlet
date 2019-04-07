@@ -2,6 +2,8 @@
 
 using namespace godot;
 
+Weapon* Player::pWeapon;
+
 void Player::_register_methods() {
 	register_method((char*)"_process", &Player::_process);
 	register_method((char*)"_ready", &Player::_ready);
@@ -11,31 +13,33 @@ void Player::_register_methods() {
 void Player::_init() { }
 
 Player::Player() {
+	pWeapon = nullptr;
 	motion = Vector2(0, 0);
 }
 Player::~Player() { return; }
 
 void Player::_process(float delta) {
-	UpdateMotionFromInput();
+	UpdateFromInput();
 	move_and_slide(motion);
 }
 
-void Player::UpdateMotionFromInput() {
+void Player::UpdateFromInput() {
 	motion = Vector2(0, 0);
 	Input* i = Input::get_singleton();
 
-	if (i->is_action_pressed("ui_up")) {
+	// Movement
+	if (i->is_action_pressed("ui_up")) 
 		motion.y -= SPEED;
-	}
-	if (i->is_action_pressed("ui_down")) {
+	if (i->is_action_pressed("ui_down")) 
 		motion.y += SPEED;
-	}
-	if (i->is_action_pressed("ui_left")) {
+	if (i->is_action_pressed("ui_left")) 
 		motion.x -= SPEED;
-	}
-	if (i->is_action_pressed("ui_right")) {
+	if (i->is_action_pressed("ui_right")) 
 		motion.x += SPEED;
-	}
+
+	// Actions
+	if (i->is_action_pressed("player_attack") && pWeapon)
+		pWeapon->Attack();
 }
 
 void Player::_ready() {
