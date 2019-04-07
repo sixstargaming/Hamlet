@@ -5,6 +5,7 @@ using namespace godot;
 void Player::_register_methods() {
 	register_method((char*)"_process", &Player::_process);
 	register_method((char*)"_ready", &Player::_ready);
+	//register_method((char*)"_on_Area2D_body_entered", &Player::_on_Area2D_body_entered);
 }
 
 void Player::_init() { }
@@ -52,3 +53,10 @@ void Player::_ready() {
 
 	//Root::pPlayer = this;
 }
+
+/*void Player::_on_Area2D_body_entered(PhysicsBody2D *offendingObject) {
+	if (offendingObject->get_name() == "Monster") {
+		Actor target = (Actor)offendingObject->get_owner();
+		target.ReduceHealth(100);
+	}
+}*/

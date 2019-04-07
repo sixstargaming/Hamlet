@@ -11,8 +11,8 @@ namespace godot {
 	public:
 
 		bool isAnimate = true; // Flag as false for inanimate objects like rocks and trees
+		bool isAlive = true;
 
-		bool isAlive;
 		float fHealth;
 
 		static void _register_methods();
@@ -25,6 +25,7 @@ namespace godot {
 		~Actor();
 
 		bool ReduceHealth(float fDamage); // Returns true if Actor is still alive after calculating damage
+		void Die(); // Kills Actor
 		bool CheckLivingStatus();
 	};
 }

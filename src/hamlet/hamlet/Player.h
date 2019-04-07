@@ -17,6 +17,7 @@ namespace godot {
 		void _init();
 		void _process(float delta);
 		void _ready();
+		//void _on_Area2D_body_entered(PhysicsBody2D *OffendingObject);
 
 		void UpdateMotionFromInput();
 		Player();

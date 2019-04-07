@@ -19,6 +19,13 @@ config/name="hamlet"
 run/main_scene="res://level_1.tscn"
 config/icon="res://icon.png"
 
+[layer_names]
+
+2d_physics/layer_1="Player"
+2d_physics/layer_2="Walls"
+2d_physics/layer_3="Weapons"
+2d_physics/layer_4="Mobs"
+
 [rendering]
 
 quality/driver/driver_name="GLES2"

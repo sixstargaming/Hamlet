@@ -2,9 +2,10 @@
 
 [ext_resource path="res://Player.gdns" type="Script" id=1]
 [ext_resource path="res://assets/player.png" type="Texture" id=2]
-[ext_resource path="res://assets/sword.png" type="Texture" id=3]
+[ext_resource path="res://sword.tscn" type="PackedScene" id=3]
 
 [node name="Player" type="KinematicBody2D"]
+collision_mask = 12
 script = ExtResource( 1 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -18,12 +19,5 @@ polygon = PoolVector2Array( 34.1373, -167.76, 51.6936, -163.371, 51.6936, -127.2
 position = Vector2( 36.1743, -84.5226 )
 texture = ExtResource( 2 )
 
-[node name="KinematicBody2D" type="KinematicBody2D" parent="CollisionPolygon2D/player"]
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="CollisionPolygon2D/player/KinematicBody2D"]
-polygon = PoolVector2Array( 54.5333, -24.229, 122.808, -17.4015, 53.5579, -8.62337 )
-
-[node name="sword" type="Sprite" parent="CollisionPolygon2D/player/KinematicBody2D/CollisionPolygon2D"]
-position = Vector2( 79.8401, -13.1081 )
-texture = ExtResource( 3 )
+[node name="sword" parent="CollisionPolygon2D/player" instance=ExtResource( 3 )]
 

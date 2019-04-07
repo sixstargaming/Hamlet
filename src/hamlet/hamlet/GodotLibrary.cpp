@@ -2,6 +2,8 @@
 #include "Root.h"
 #include "Actor.h"
 #include "Player.h"
+#include "Monster.h"
+#include "Weapon.h"
 
 // #include <gdnative_api_struct.gen.h>  // Not needed?
 //#include <core/Godot.hpp> // Remove once included in root file?
@@ -22,4 +24,6 @@ extern "C" void GDN_EXPORT godot_nativescript_init(void *handle) {
 	/* Register all classes here with godot::register_class<godot::CLASSNAME>(); */
 	godot::register_class<godot::Actor>();
 	godot::register_class<godot::Player>();
+	godot::register_class<godot::Monster>();
+	godot::register_class<godot::Weapon>();
 }
