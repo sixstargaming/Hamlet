@@ -51,7 +51,7 @@ void Weapon::_physics_process(float delta) {
 bool Weapon::IsOwner(Node *actor) {
 	//if (this->get_parent()->get_name() == actor.get_name()) // This throws an access violation
 		//return true;
-	if (this == actor)
+	if (this->get_parent() == actor)
 		return true;
 	return false;
 }
