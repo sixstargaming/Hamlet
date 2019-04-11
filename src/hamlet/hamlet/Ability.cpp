@@ -18,11 +18,15 @@ void Ability::_ready() { return; }
 
 void Ability::StartCooldown() {
 	iCountdown = iCooldown;
+	isDisabled = true;
 }
 
 void Ability::_fixed_process(float delta) {
-	iCountdown -= 1;
-	if (iCountdown <= 0)
+	if (isDisabled) {
+		iCountdown -= 1;
+		if (iCountdown <= 0)
+			isDisabled = false;
+	}
 	return;
 }
 
