@@ -28,6 +28,9 @@ namespace godot {
 		void StartCooldown();
 		int GetCooldown();
 		int GetRemainingCooldown();
+
+		// Method to be overwritten by inheritor
+		void Execute();
 	};
 }
 
