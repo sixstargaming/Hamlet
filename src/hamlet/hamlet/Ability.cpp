@@ -11,7 +11,7 @@ void Ability::_register_methods() {
 
 void Ability::_init() { return; }
 
-Ability::Ability() { return; }
+Ability::Ability() { iCooldown = 0; /*safety assign*/ return; }
 Ability::~Ability() { return; }
 
 void Ability::_ready() { return; }
