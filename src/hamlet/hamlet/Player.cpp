@@ -15,8 +15,14 @@ void Player::_init() { }
 Player::Player() {
 	pWeapon = nullptr;
 	motion = Vector2(0, 0);
+
+	// Create ability on palyer
+	pAbility = new Backstep(this);
 }
-Player::~Player() { return; }
+Player::~Player() { 
+	delete pAbility;
+	return; 
+}
 
 void Player::_process(float delta) {
 	UpdateFromInput();
@@ -40,6 +46,8 @@ void Player::UpdateFromInput() {
 	// Actions
 	if (i->is_action_pressed("player_attack") && pWeapon)
 		pWeapon->Attack();
+	if (i->is_action_pressed("player_ability") && pAbility)
+		pAbility->Execute();
 }
 
 void Player::_ready() {

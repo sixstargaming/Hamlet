@@ -4,8 +4,11 @@ using namespace godot;
 
 void Backstep::_init() { return; }
 
-Backstep::Backstep(Actor* actor) {
+Backstep::Backstep() { throw "Requires a pointer to parent"; }
+
+Backstep::Backstep(Player* actor) {
 	iCooldown = 10;
+	//Player::pAbility = this;
 	return;
 }
 

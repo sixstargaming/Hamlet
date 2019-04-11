@@ -5,7 +5,7 @@ using namespace godot;
 void Ability::_register_methods() {
 	//register_method((char*)"_process", &Weapon::_process);
 	register_method((char*)"_ready", &Ability::_ready);
-	register_method((char*)"_physics_process", &Ability::_fixed_process);
+	register_method((char*)"_fixed_process", &Ability::_fixed_process);
 	//register_method((char*)"_on_AnimationPlayer_animation_finished", &Weapon::_on_AnimationPlayer_animation_finished);
 }
 

@@ -3,20 +3,24 @@
 
 #include "Ability.h"
 #include "Actor.h"
+#include "Player.h"
 
 namespace godot {
-	class Backstep : Ability {
+	class Player;
+
+	class Backstep : public Ability {
 		GODOT_CLASS(Backstep, Ability)
 
 	private:
 		int distance = 300;
-		Actor* actor;
+		Player* actor;
 
 	public:
 
 		void _init();
 
-		Backstep(Actor* actor);
+		Backstep();
+		Backstep(Player* actor);
 		~Backstep();
 
 		void Execute();
