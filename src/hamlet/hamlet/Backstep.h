@@ -13,7 +13,7 @@ namespace godot {
 
 	private:
 		int distance = 300;
-		Player* actor;
+		Player* pPlayer;
 
 	public:
 

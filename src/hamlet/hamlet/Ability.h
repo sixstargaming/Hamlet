@@ -2,12 +2,11 @@
 #define ABILITY_H
 
 #include "Root.h"
-
-/* This class is not linked into the game yet. */
+#include <Node.hpp>
 
 namespace godot {
-	class Ability : public Object {
-		GODOT_CLASS(Ability, Object) 
+	class Ability : public Node {
+		GODOT_CLASS(Ability, Node) 
 
 	protected:
 		int iCooldown;
@@ -20,7 +19,7 @@ namespace godot {
 
 		void _init();
 		void _ready();
-		void _fixed_process(float delta);
+		void _physics_process(float delta);
 
 		Ability();
 		~Ability();

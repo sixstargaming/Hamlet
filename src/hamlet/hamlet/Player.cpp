@@ -18,8 +18,10 @@ Player::Player() {
 
 	// Create ability on palyer
 	pAbility = new Backstep(this);
+	add_child(pAbility);
 }
 Player::~Player() { 
+	remove_child(pAbility);
 	delete pAbility;
 	return; 
 }
