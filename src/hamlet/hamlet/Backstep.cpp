@@ -6,9 +6,9 @@ void Backstep::_init() { return; }
 
 Backstep::Backstep() { throw "Requires a pointer to parent"; }
 
-Backstep::Backstep(Player* actor) {
+Backstep::Backstep(Player* argp) {
 	iCooldown = 10;
-	//Player::pAbility = this;
+	actor = argp;
 	return;
 }
 

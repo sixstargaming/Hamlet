@@ -20,7 +20,7 @@ namespace godot {
 		void _init();
 
 		Backstep();
-		Backstep(Player* actor);
+		Backstep(Player* argp);
 		~Backstep();
 
 		void Execute();
