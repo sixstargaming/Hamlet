@@ -12,7 +12,7 @@ namespace godot {
 		GODOT_CLASS(Backstep, Ability)
 
 	private:
-		int distance = 300;
+		int distance = -1800;
 		Player* actor;
 
 	public:

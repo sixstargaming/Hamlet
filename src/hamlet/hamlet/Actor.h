@@ -12,12 +12,16 @@ namespace godot {
 
 		bool isAnimate = true; // Flag as false for inanimate objects like rocks and trees
 		bool isAlive = true;
+		bool isAbilityEnabled = true;
+
+		int iAbilityCountdown = 0;
 
 		float fHealth;
 
 		static void _register_methods();
 		void _init();
 		void _process(float delta);
+		void _physics_process(float delta);
 		void _ready();
 
 		Actor();
@@ -27,6 +31,9 @@ namespace godot {
 		bool ReduceHealth(float fDamage); // Returns true if Actor is still alive after calculating damage
 		void Die(); // Kills Actor
 		bool CheckLivingStatus();
+
+		// Ability and weapons stuff
+		void StartAbilityCooldown(int cooldown);
 	};
 }
 
