@@ -4,6 +4,8 @@
 #include "Root.h"
 #include "Actor.h"
 #include "Weapon.h"
+#include "Ability.h"
+#include "Backstep.h"
 #include <KinematicBody2D.hpp>
 #include <Camera2D.hpp>
 #include <Input.hpp>
@@ -11,6 +13,7 @@
 
 namespace godot {
 	class Weapon;
+	class Backstep;
 
 	class Player : public Actor {
 		GODOT_CLASS(Player, Actor)
@@ -21,6 +24,7 @@ namespace godot {
 		const int SPEED = 300;
 
 		static Weapon* pWeapon;
+		Backstep* pAbility;
 
 		static void _register_methods();
 		void _init();
