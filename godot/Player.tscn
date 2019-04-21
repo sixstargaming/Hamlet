@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Player.gdns" type="Script" id=1]
-[ext_resource path="res://assets/player.png" type="Texture" id=2]
+[ext_resource path="res://assets/sprites/Idle.png" type="Texture" id=2]
 [ext_resource path="res://sword.tscn" type="PackedScene" id=3]
 
 [node name="Player" type="KinematicBody2D"]
@@ -13,11 +13,13 @@ position = Vector2( 36.1743, -84.5226 )
 current = true
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-polygon = PoolVector2Array( 34.1373, -167.76, 51.6936, -163.371, 51.6936, -127.283, 36.088, -116.554, 35.6003, -91.1953, 37.551, -87.2939, 81.4417, -107.776, 61.4471, -91.1953, 39.5017, -83.8801, 35.1126, -54.6196, 68.7622, -7.80283, 65.3485, -4.3891, 32.1866, -51.6936, 14.6303, 0.975327, 6.82746, -1.95071, 29.7482, -55.595, 32.1866, -84.8555, 13.6549, -91.6829, 0.487686, -103.875, 1.46304, -107.289, 19.9947, -94.1213, 32.1866, -89.2446, 31.6989, -116.067, 20.97, -113.628, 7.80282, -126.796, 6.33979, -154.593, 14.6303, -164.347, 19.0193, -163.371, 19.507, -168.248 )
+position = Vector2( 22.1736, 14.806 )
+polygon = PoolVector2Array( 24.8515, -99.7134, 52.5904, -105.261, 53.4664, -63.7988, 18.1358, -63.7988 )
 
 [node name="player" type="Sprite" parent="CollisionPolygon2D"]
 position = Vector2( 36.1743, -84.5226 )
 texture = ExtResource( 2 )
 
 [node name="sword" parent="CollisionPolygon2D/player" instance=ExtResource( 3 )]
+position = Vector2( -18.0179, 18.6873 )
 
