@@ -13,8 +13,10 @@ namespace godot {
 		bool isAnimate = true; // Flag as false for inanimate objects like rocks and trees
 		bool isAlive = true;
 		bool isAbilityEnabled = true;
+		bool isAbility2Enabled = true;
 
 		int iAbilityCountdown = 0;
+		int iAbility2Countdown = 0;
 
 		float fHealth;
 
@@ -34,6 +36,7 @@ namespace godot {
 
 		// Ability and weapons stuff
 		void StartAbilityCooldown(int cooldown);
+		void StartAbility2Cooldown(int cooldown);
 	};
 }
 

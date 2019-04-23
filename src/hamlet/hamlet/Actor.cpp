@@ -42,6 +42,11 @@ void Actor::StartAbilityCooldown(int cooldown) {
 	isAbilityEnabled = false;
 }
 
+void Actor::StartAbility2Cooldown(int cooldown) {
+	iAbility2Countdown = cooldown;
+	isAbility2Enabled = false;
+}
+
 // HP methods
 bool Actor::ReduceHealth(float fDamage) {
 	if (isAnimate && isAlive) {

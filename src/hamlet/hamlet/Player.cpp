@@ -18,6 +18,7 @@ Player::Player() {
 
 	// Create ability on palyer
 	pAbility = new Backstep(this);
+	pAbility2 = new Lunge(this);
 }
 Player::~Player() { 
 	delete pAbility;
@@ -32,6 +33,11 @@ void Player::_process(float delta) {
 		iAbilityCountdown -= 1;
 		if (iAbilityCountdown <= 0)
 			isAbilityEnabled = true;
+	}
+	if (!isAbility2Enabled) {
+		iAbility2Countdown -= 1;
+		if (iAbility2Countdown <= 0)
+			isAbility2Enabled = true;
 	}
 	Godot::print(isAbilityEnabled);
 	return;
@@ -57,6 +63,8 @@ void Player::UpdateFromInput() {
 		pWeapon->Attack();
 	if (i->is_action_pressed("player_ability") && pAbility && isAbilityEnabled)
 		pAbility->Execute();
+	if (i->is_action_pressed("player_ability2") && pAbility2 && isAbility2Enabled)
+		pAbility2->Execute();
 }
 
 void Player::_ready() {

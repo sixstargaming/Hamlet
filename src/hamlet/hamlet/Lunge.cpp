@@ -17,6 +17,6 @@ Lunge::~Lunge() { return; }
 void Lunge::Execute() {
 	Vector2 motion = Vector2(distance, 0);
 	actor->move_and_slide(motion);
-	actor->StartAbilityCooldown(iCooldown);
+	actor->StartAbility2Cooldown(iCooldown);
 	return;
 }

@@ -6,6 +6,7 @@
 #include "Weapon.h"
 #include "Ability.h"
 #include "Backstep.h"
+#include "Lunge.h"
 #include <KinematicBody2D.hpp>
 #include <Camera2D.hpp>
 #include <Input.hpp>
@@ -13,7 +14,9 @@
 
 namespace godot {
 	class Weapon;
+
 	class Backstep;
+	class Lunge;
 
 	class Player : public Actor {
 		GODOT_CLASS(Player, Actor)
@@ -25,6 +28,7 @@ namespace godot {
 
 		static Weapon* pWeapon;
 		Backstep* pAbility;
+		Lunge* pAbility2;
 
 		static void _register_methods();
 		void _init();
