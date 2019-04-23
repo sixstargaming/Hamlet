@@ -19,12 +19,7 @@ Actor::~Actor() { set_process(true);  return; }
 
 // Only run if _process is not overloaded
 void Actor::_process(float delta) {
-	if (!isAbilityEnabled) {
-		iAbilityCountdown -= 1;
-		if (iAbilityCountdown <= 0)
-			isAbilityEnabled = true;
-	}
-	Godot::print(isAbilityEnabled);
+	// Inheritor is responsible for implementing this
 	return;
 }
 

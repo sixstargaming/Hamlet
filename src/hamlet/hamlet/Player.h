@@ -36,7 +36,9 @@ namespace godot {
 		void _ready();
 		//void _on_Area2D_body_entered(PhysicsBody2D *OffendingObject);
 
+		void ProcessAbilityCooldowns();
 		void UpdateFromInput();
+
 		Player();
 		~Player();
 	};

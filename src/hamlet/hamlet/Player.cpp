@@ -25,10 +25,24 @@ Player::~Player() {
 	return; 
 }
 
+/* START PROCESSES */
 void Player::_process(float delta) {
-	UpdateFromInput();
+	
+	// Tier 1
+	ProcessAbilityCooldowns();
+	
+	// Last Tier
+	if (!isStunned)
+		UpdateFromInput();
 	move_and_slide(motion);
 
+	// debugs
+	Godot::print(isAbilityEnabled);
+	return;
+
+}
+
+void Player::ProcessAbilityCooldowns() {
 	if (!isAbilityEnabled) {
 		iAbilityCountdown -= 1;
 		if (iAbilityCountdown <= 0)
@@ -39,9 +53,6 @@ void Player::_process(float delta) {
 		if (iAbility2Countdown <= 0)
 			isAbility2Enabled = true;
 	}
-	Godot::print(isAbilityEnabled);
-	return;
-
 }
 
 void Player::UpdateFromInput() {
@@ -66,6 +77,8 @@ void Player::UpdateFromInput() {
 	if (i->is_action_pressed("player_ability2") && pAbility2 && isAbility2Enabled)
 		pAbility2->Execute();
 }
+
+/* END PROCESSES */
 
 void Player::_ready() {
 	const godot::String gsCamera2D = "Camera2D";

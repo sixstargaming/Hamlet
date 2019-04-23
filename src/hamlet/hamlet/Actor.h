@@ -14,6 +14,7 @@ namespace godot {
 		bool isAlive = true;
 		bool isAbilityEnabled = true;
 		bool isAbility2Enabled = true;
+		bool isStunned = false;
 
 		int iAbilityCountdown = 0;
 		int iAbility2Countdown = 0;

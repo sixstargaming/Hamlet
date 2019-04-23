@@ -1,8 +1,56 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Player.gdns" type="Script" id=1]
-[ext_resource path="res://assets/sprites/Idle.png" type="Texture" id=2]
+[ext_resource path="res://assets/sprites/punch/punch.png" type="Texture" id=2]
 [ext_resource path="res://sword.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/sounds/melee sound.wav" type="AudioStream" id=4]
+[ext_resource path="res://assets/sounds/hit15.ogg" type="AudioStream" id=5]
+
+[sub_resource type="Animation" id=1]
+resource_name = "punch"
+length = 0.6
+loop = true
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.15, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2 ]
+}
+tracks/1/type = "audio"
+tracks/1/path = NodePath("AudioStreamPlayer2D")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 4 )
+} ],
+"times": PoolRealArray( 0.05 )
+}
+tracks/2/type = "audio"
+tracks/2/path = NodePath("AudioStreamPlayer2D")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 5 )
+} ],
+"times": PoolRealArray( 0.2 )
+}
 
 [node name="Player" type="KinematicBody2D"]
 collision_mask = 12
@@ -16,12 +64,19 @@ current = true
 position = Vector2( 22.1736, 14.806 )
 polygon = PoolVector2Array( 5.13573, -143.553, 52.4401, -130.386, 47.0757, -10.4178, -22.6617, -15.2946 )
 
-[node name="player" type="Sprite" parent="CollisionPolygon2D"]
-position = Vector2( 15.4482, -88.1802 )
+[node name="Player" type="Sprite" parent="CollisionPolygon2D"]
+position = Vector2( 18.3934, -86.6447 )
 scale = Vector2( 2.21918, 3.55732 )
 texture = ExtResource( 2 )
+hframes = 3
 
-[node name="sword" parent="CollisionPolygon2D/player" instance=ExtResource( 3 )]
-position = Vector2( -3.1747, 6.55557 )
+[node name="sword" parent="CollisionPolygon2D/Player" instance=ExtResource( 3 )]
+position = Vector2( -3.40309, 1.18867 )
 scale = Vector2( 0.450616, 0.281111 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CollisionPolygon2D/Player"]
+anims/punch = SubResource( 1 )
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="CollisionPolygon2D/Player"]
+stream = ExtResource( 4 )
 
