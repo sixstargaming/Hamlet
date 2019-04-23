@@ -14,12 +14,14 @@ current = true
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 position = Vector2( 22.1736, 14.806 )
-polygon = PoolVector2Array( 24.8515, -99.7134, 52.5904, -105.261, 53.4664, -63.7988, 18.1358, -63.7988 )
+polygon = PoolVector2Array( 5.13573, -143.553, 52.4401, -130.386, 47.0757, -10.4178, -22.6617, -15.2946 )
 
 [node name="player" type="Sprite" parent="CollisionPolygon2D"]
-position = Vector2( 36.1743, -84.5226 )
+position = Vector2( 15.4482, -88.1802 )
+scale = Vector2( 2.21918, 3.55732 )
 texture = ExtResource( 2 )
 
 [node name="sword" parent="CollisionPolygon2D/player" instance=ExtResource( 3 )]
-position = Vector2( -18.0179, 18.6873 )
+position = Vector2( -3.1747, 6.55557 )
+scale = Vector2( 0.450616, 0.281111 )
 
