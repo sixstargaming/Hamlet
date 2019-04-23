@@ -150,6 +150,7 @@
     <ClCompile Include="Actor.cpp" />
     <ClCompile Include="Backstep.cpp" />
     <ClCompile Include="GodotLibrary.cpp" />
+    <ClCompile Include="Lunge.cpp" />
     <ClCompile Include="Monster.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Root.cpp" />
@@ -159,6 +160,7 @@
     <ClInclude Include="Actor.h" />
     <ClInclude Include="Ability.h" />
     <ClInclude Include="Backstep.h" />
+    <ClInclude Include="Lunge.h" />
     <ClInclude Include="Monster.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="Root.h" />
