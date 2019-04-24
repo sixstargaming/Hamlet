@@ -62,6 +62,7 @@ texture = ExtResource( 1 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
 position = Vector2( 50.54, -7.22 )
+collision_mask = 14
 
 [node name="Sprite" type="Sprite" parent="Player"]
 position = Vector2( -32.5149, 28.261 )
@@ -77,4 +78,46 @@ stream = ExtResource( 5 )
 
 [node name="Monster" parent="." instance=ExtResource( 6 )]
 position = Vector2( 404.32, -5.41498 )
+
+[node name="WallTop" type="KinematicBody2D" parent="."]
+editor/display_folded = true
+collision_layer = 2
+collision_mask = 3
+
+[node name="WallTopCollision" type="CollisionPolygon2D" parent="WallTop"]
+position = Vector2( 372.795, -184.283 )
+scale = Vector2( 4.56383, 1 )
+polygon = PoolVector2Array( -81.9131, -85.5822, -81.1464, -65.7543, 137.872, -65.7543, 137.361, -91.414 )
+
+[node name="WallBottom" type="KinematicBody2D" parent="."]
+editor/display_folded = true
+position = Vector2( 372.795, -184.283 )
+scale = Vector2( 4.56383, 1 )
+collision_layer = 2
+collision_mask = 9
+
+[node name="WallBottomCollision" type="CollisionPolygon2D" parent="WallBottom"]
+polygon = PoolVector2Array( -80.6353, 183.845, -80.1242, 225.833, 138.383, 214.17, 137.616, 183.845 )
+
+[node name="WallLeft" type="KinematicBody2D" parent="."]
+editor/display_folded = true
+position = Vector2( 372.795, -184.283 )
+scale = Vector2( 4.56383, 1 )
+collision_layer = 2
+collision_mask = 9
+
+[node name="WallLeftCollision" type="CollisionPolygon2D" parent="WallLeft"]
+position = Vector2( -238.186, -183.117 )
+polygon = PoolVector2Array( 150.112, 120.134, 152.923, 367.401, 157.012, 366.234, 157.012, 116.635 )
+
+[node name="WallRight" type="KinematicBody2D" parent="."]
+editor/display_folded = true
+position = Vector2( 372.795, -184.283 )
+scale = Vector2( 4.56383, 1 )
+collision_layer = 2
+collision_mask = 9
+
+[node name="WallRightCollision" type="CollisionPolygon2D" parent="WallRight"]
+position = Vector2( -12.2671, -186.616 )
+polygon = PoolVector2Array( 150.112, 120.134, 149.601, 368.567, 153.69, 368.567, 153.179, 120.134 )
 
