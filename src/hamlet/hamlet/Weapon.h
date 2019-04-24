@@ -19,6 +19,7 @@ namespace godot {
 		bool current_state = IDLE;
 
 		float fDamage = 50.00f;
+		float fStunTime = 0.5f;
 
 		static void _register_methods();
 

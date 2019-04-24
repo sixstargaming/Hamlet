@@ -50,7 +50,7 @@ void Weapon::_physics_process(float delta) {
 		Object *aObject = ___get_from_variant(aOverlappingBodies[x]);
 		Actor *aActor = static_cast<Actor*>(aObject);
 		if (!IsOwner(aActor))
-			aActor->ReduceHealth(fDamage);	
+			aActor->ReduceHealth(fDamage, fStunTime);	
 	}
 	//set_physics_process(false); // End the attack on hit
 }

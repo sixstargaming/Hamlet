@@ -43,10 +43,11 @@ void Actor::StartAbility2Cooldown(int cooldown) {
 }
 
 // HP methods
-bool Actor::ReduceHealth(float fDamage) {
+bool Actor::ReduceHealth(float fDamage, float fStunTime) {
 	if (isAnimate && isAlive) {
 		fHealth -= fDamage;
 		Godot::print("{0}", fHealth);
+		// TODO: Add hitstun effects
 		return CheckLivingStatus();
 	}
 	return false;
