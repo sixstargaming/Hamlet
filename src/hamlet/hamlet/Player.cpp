@@ -22,6 +22,7 @@ Player::Player() {
 }
 Player::~Player() { 
 	delete pAbility;
+	delete pAbility2;
 	return; 
 }
 
@@ -40,19 +41,6 @@ void Player::_process(float delta) {
 	Godot::print(isAbilityEnabled);
 	return;
 
-}
-
-void Player::ProcessAbilityCooldowns() {
-	if (!isAbilityEnabled) {
-		iAbilityCountdown -= 1;
-		if (iAbilityCountdown <= 0)
-			isAbilityEnabled = true;
-	}
-	if (!isAbility2Enabled) {
-		iAbility2Countdown -= 1;
-		if (iAbility2Countdown <= 0)
-			isAbility2Enabled = true;
-	}
 }
 
 void Player::UpdateFromInput() {
