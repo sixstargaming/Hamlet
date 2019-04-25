@@ -16,7 +16,7 @@ Player::Player() {
 	pWeapon = nullptr;
 	motion = Vector2(0, 0);
 
-	// Create ability on palyer
+	// Create abilities on palyer
 	pAbility = new Backstep(this);
 	pAbility2 = new Lunge(this);
 }
@@ -31,6 +31,7 @@ void Player::_process(float delta) {
 	
 	// Tier 1
 	ProcessAbilityCooldowns();
+	ProcessStunTimer();
 	
 	// Last Tier
 	if (!isStunned)
@@ -65,7 +66,6 @@ void Player::UpdateFromInput() {
 	if (i->is_action_pressed("player_ability2") && pAbility2 && isAbility2Enabled)
 		pAbility2->Execute();
 }
-
 /* END PROCESSES */
 
 void Player::_ready() {
