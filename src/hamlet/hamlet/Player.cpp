@@ -16,12 +16,13 @@ Player::Player() {
 	pWeapon = nullptr;
 	motion = Vector2(0, 0);
 
-	// Create ability on palyer
+	// Create abilities on palyer
 	pAbility = new Backstep(this);
 	pAbility2 = new Lunge(this);
 }
 Player::~Player() { 
 	delete pAbility;
+	delete pAbility2;
 	return; 
 }
 
@@ -30,6 +31,7 @@ void Player::_process(float delta) {
 	
 	// Tier 1
 	ProcessAbilityCooldowns();
+	ProcessStunTimer();
 	
 	// Last Tier
 	if (!isStunned)
@@ -40,19 +42,6 @@ void Player::_process(float delta) {
 	Godot::print(isAbilityEnabled);
 	return;
 
-}
-
-void Player::ProcessAbilityCooldowns() {
-	if (!isAbilityEnabled) {
-		iAbilityCountdown -= 1;
-		if (iAbilityCountdown <= 0)
-			isAbilityEnabled = true;
-	}
-	if (!isAbility2Enabled) {
-		iAbility2Countdown -= 1;
-		if (iAbility2Countdown <= 0)
-			isAbility2Enabled = true;
-	}
 }
 
 void Player::UpdateFromInput() {
@@ -77,7 +66,6 @@ void Player::UpdateFromInput() {
 	if (i->is_action_pressed("player_ability2") && pAbility2 && isAbility2Enabled)
 		pAbility2->Execute();
 }
-
 /* END PROCESSES */
 
 void Player::_ready() {

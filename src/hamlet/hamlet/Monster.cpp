@@ -13,7 +13,7 @@ Monster::Monster() { fHealth = 100.00f; }
 Monster::~Monster() { return; }
 
 void Monster::_process(float delta) {
-	if (fHealth <= 0) Die();
+	//if (fHealth <= 0) Die(); // Redundant
 	ProcessAI();
 }
 

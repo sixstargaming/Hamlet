@@ -47,10 +47,39 @@ bool Actor::ReduceHealth(float fDamage, float fStunTime) {
 	if (isAnimate && isAlive) {
 		fHealth -= fDamage;
 		Godot::print("{0}", fHealth);
-		// TODO: Add hitstun effects
-		return CheckLivingStatus();
+		
+		if (CheckLivingStatus()) {
+			if (fStunTime > 0) {
+				isStunned = true; // Hitstun effects
+				iStunTimer = fStunTime;
+			}
+		}
+		else if (isAnimate) {
+			Die(); // Only kill animate objects
+		}
 	}
 	return false;
+}
+
+void Actor::ProcessStunTimer() {
+	if (isStunned) {
+		iStunTimer--;
+		if (iStunTimer <= 0)
+			isStunned = false;
+	}
+}
+
+void Actor::ProcessAbilityCooldowns() {
+	if (!isAbilityEnabled) {
+		iAbilityCountdown -= 1;
+		if (iAbilityCountdown <= 0)
+			isAbilityEnabled = true;
+	}
+	if (!isAbility2Enabled) {
+		iAbility2Countdown -= 1;
+		if (iAbility2Countdown <= 0)
+			isAbility2Enabled = true;
+	}
 }
 
 bool Actor::CheckLivingStatus() {

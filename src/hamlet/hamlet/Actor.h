@@ -19,6 +19,8 @@ namespace godot {
 		int iAbilityCountdown = 0;
 		int iAbility2Countdown = 0;
 
+		int iStunTimer = 0;
+
 		float fHealth;
 
 		static void _register_methods();
@@ -31,6 +33,8 @@ namespace godot {
 		Actor(bool a);
 		~Actor();
 
+		void ProcessStunTimer();
+		void ProcessAbilityCooldowns();
 		bool ReduceHealth(float fDamage, float fStunTime); // Returns true if Actor is still alive after calculating damage
 		void Die(); // Kills Actor
 		bool CheckLivingStatus();
