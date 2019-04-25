@@ -49,7 +49,7 @@ bool Actor::ReduceHealth(float fDamage, float fStunTime) {
 		Godot::print("{0}", fHealth);
 		
 		if (CheckLivingStatus()) {
-			if (fStunTime > 0 && !isStunned) {
+			if (fStunTime > 0) {
 				isStunned = true; // Hitstun effects
 				iStunTimer = fStunTime;
 			}
